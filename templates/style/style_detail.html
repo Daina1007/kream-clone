@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}style-상세페이지{% endblock title %}
+
+{% block contents %}
+<h3>스타일</h3>
+<h4>작성자: {{style.user}}</h4>
+
+{% for photo in style.photo_set.all%}
+<img src="{{photo.image.url}}" alt="{{style.user}}"/>
+{% endfor %}
+
+{% endblock contents %}
