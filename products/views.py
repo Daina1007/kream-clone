@@ -6,6 +6,8 @@ from . import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
+from django.db.models import Q
+from products import models, forms
 
 
 class ProductDetail(DetailView):
@@ -47,6 +49,44 @@ class ProductListView(ListView):
         context["now"] = timezone.now()
         context["daina"] = "Daina의 프로젝트"
         return context
+
+
+def search(request):
+    keyword = request.GET.get("keyword", None)
+    price = request.GET.getlist("price", None)
+    brands = request.GET.getlist("brands", None)
+    form = forms.SearchForm(request.GET)
+
+    filter_args = {}
+    if form.is_valid():
+        q = Q()
+        if len(brands) > 0:
+            # models.Product.objects.filter(brand__id__in=brands)
+            filter_args["brand__id__in"] = brands
+        if len(price) > 0:
+            if "-100000" in price:
+                q.add(Q(released_price__lte=100000), q.OR)
+            if "100000-300000" in price:
+                q.add(Q(released_price__gte=100000, released_price__lte=300000), q.OR)
+            if "300000-500000" in price:
+                q.add(Q(released_price__gte=300000, released_price__lte=500000), q.OR)
+            if "500000-" in price:
+                q.add(Q(released_price__gte=500000), q.OR)
+            result = models.Product.objects.filter(q)
+        if keyword is not None and keyword != "":
+            q.add(
+                Q(name_en__contains=keyword)
+                | Q(model_number__contains=keyword)
+                | Q(brand__name__contains=keyword),
+                q.AND,
+            )
+
+    result = models.Product.objects.filter(q, **filter_args)
+    return render(
+        request,
+        "products/search.html",
+        {"result": result, "keyword": keyword, "price": price, "form": form},
+    )
 
 
 # django templates만을 사용해서
