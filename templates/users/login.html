@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}LOGIN{% endblock title %}
+
+{% block contents %}
+<h1>로그인페이지임</h1>
+<form method="post" action="{% url "users:login" %}">
+    {% csrf_token %}
+    {% comment %} <input type="email" name="email" placeholder="예)  kream@kream.co.kr">
+    <input type="password" name="password"> {% endcomment %}
+    {% comment %} {{form.as_p}} {% endcomment %}
+    {% for field in form %}
+    <p>
+        {{field}}
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <span class="text-red-700 font-medium text-sm">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </p>
+    {% endfor %}
+    <input type="submit" value="로그인">
+    {% comment %} <input type="date" name="date"> {% endcomment %}
+    {% comment %} <button type="submit">로그인</button>는 11줄과 같은 의미{% endcomment %}
+</form>
+{% endblock contents %}
