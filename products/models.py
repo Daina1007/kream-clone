@@ -1,7 +1,7 @@
 from django.db import models
 from core.models import TimeStampedModel
 
-# 실제로 표시되는 이름을 알려주는 메소드를 추가한 것
+
 class Brand(TimeStampedModel):
     name = models.CharField(max_length=40)
 

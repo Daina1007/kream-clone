@@ -1,12 +1,26 @@
 {% extends 'base.html' %} 
 {% block contents %}
-<h1>{{now}}</h1>
+{% comment %} <h1>{{now}}</h1> {% endcomment %}
 <h1>제품리스트</h1>
-<ul>
+
+<div class="product_list_box">
+<div class="product_list">
 {% for product in products %}
-    <li><a href="{% url "products:detail" product.pk %}">{{product.name_en}}</a></li>
+    <div class="product">
+        <img src="{{product.photo_set.first.image.url}}" alt="상품사진" class="photo">
+        <div class="product_detail">
+            <p class="product_brand">{{product.brand}}</p>
+            <p class="product_list_name"><a href="{% url "products:detail" product.pk %}">{{product.name_en}}</a></p>
+            <p class="product_list_name">{{product.name_ko}}</p>
+            <p class="product_price">{{product.released_price}}원</p>
+            <p class="present_price">즉시구매가</p>
+            <p class="product_comment">✅100  📝200</p>
+        </div>    
+    </div>    
 {% endfor %}
-</ul>
+</div>
+</div>
+
 <h5>
 {% if page_obj.has_previous %}
     <a href="?page={{page_obj.previous_page_number}}">Previous</a>

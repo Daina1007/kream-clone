@@ -9,10 +9,16 @@ from django.urls import reverse_lazy
 class SignUpView(FormView):
     form_class = forms.SignUpForm
     template_name = "users/signup.html"
-    success_url = reverse_lazy("users:login")
+    success_url = reverse_lazy("products:list")
 
     def form_valid(self, form):
         form.save()
+        email = form.cleaned_data.get("email")
+        password = form.cleaned_data.get("password")
+        user = authenticate(self.request, username=email, password=password)
+
+        if user is not None:
+            login(self.request, user)
         return super().form_valid(form)
 
 

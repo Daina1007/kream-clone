@@ -8,10 +8,10 @@
   /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px; */
-  background-color: blueviolet;
+  background-color: rgb(210, 126, 16);
 }
+
 .style {
-  background-color: aqua;
   height: fit-content;
   width: 24%;
   /* grid-row-start: 1; */
@@ -23,7 +23,6 @@
 }
 .user {
   font-size: 14px;
-  /* background-color: antiquewhite; */
   margin-top: 2px;
   margin-bottom: 0px;
 }
@@ -47,9 +46,7 @@
   margin: 5px 0px;
   /* background-color: blanchedalmond; */
 }
-.product_list_box {
-  /* background-color: antiquewhite; */
-}
+
 .product_list {
   width: 100%;
   display: flex;
