@@ -1,0 +1,18 @@
+{% load humanize %}
+
+<div class="detail_price_box">
+    <div class="price_box">
+        <div class="price_type">구매</div>
+        <div class="price_type_p">
+            <p class="price_price">{{product.released_price|intcomma}}원</p>
+            <p style="font-size: 11px;font-weight: 600;margin-top:3px">즉시구매가</p>
+        </div>
+    </div>
+    <div class="price_box" style=" background-color: #41b979;">
+        <div class="price_type" style="  border-right: 1px solid #1c7545;">판매</div>
+        <div class="price_type_p">
+            <p class="price_price">{{product.released_price|intcomma}}원</p>
+            <p style="font-size: 11px;font-weight: 600;margin-top:3px">즉시판매가</p>
+        </div>
+    </div>
+</div>

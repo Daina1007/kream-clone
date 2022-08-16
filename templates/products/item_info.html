@@ -1,0 +1,22 @@
+{% load humanize %}
+
+<h3 class="detail_title">상품 정보</h3>
+<div class="item_info_list">
+    <div class="item_info_box">
+        <p class="info_box_name">모델번호</p>
+        <p class="info_box_content" style="font-weight: 600;">{{product.model_number}}</p>
+    </div>
+    <div class="item_info_box line">
+        <p class="info_box_name">출시일</p>
+        <p class="info_box_content">{{product.released|date:"y/m/d"}}</p>
+    </div>
+    <div class="item_info_box line">
+        <p class="info_box_name">컬러</p>
+        <p class="info_box_content">{{product.color}}</p>
+    </div>
+    <div class="item_info_box line">
+        <p class="info_box_name">발매가</p>
+        <p class="info_box_content">{{product.released_price|intcomma}}원</p>
+    </div>
+
+</div>

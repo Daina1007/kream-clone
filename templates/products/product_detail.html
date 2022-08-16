@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block title %}상세페이지{% endblock title %}
 
@@ -13,11 +14,19 @@
         <p class="product_detail_brand">{{product.brand}}</p>
         <p class="product_detail_name">{{product.name_en}}</p>
         <p class="product_detail_name" style="color: gray">{{product.name_ko}}</p>
-        <div class="detail_price_box">
-            <p>최근거래가</p>
-            <p class="product_detail_price">{{product.released_price}}원</p>
+        <div class="product_detail_box" style="border-bottom: 1px solid lightgray;">
+            <p>사이즈</p>
+            <p class="product_detail_ps">모든사이즈</p>
         </div>
+        <div class="product_detail_box">
+            <p>최근거래가</p>
+            <p class="product_detail_ps">{{product.released_price|intcomma}}원</p>
+        </div>
+        {% include 'products/item_price.html' with product=product%}
+        <div class="interested_product">관심상품</div>
+        {% include 'products/item_info.html' with product=product%}
+        {% include 'products/delivery_info.html' with product=product %}
+        {% include 'products/detail_check.html' with product=product %}
     </div>
-
 </div>
 {% endblock contents %}

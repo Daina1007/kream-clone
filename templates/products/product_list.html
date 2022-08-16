@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load humanize %}
 {% block contents %}
 {% comment %} <h1>{{now}}</h1> {% endcomment %}
 {% comment %} <p>제품리스트임</p> {% endcomment %}
@@ -12,7 +13,7 @@
             <p class="product_brand">{{product.brand}}</p>
             <p class="product_list_name"><a href="{% url "products:detail" product.pk %}">{{product.name_en}}</a></p>
             <p class="product_list_name" style="color: gray;">{{product.name_ko}}</p>
-            <p class="product_price">{{product.released_price}}원</p>
+            <p class="product_price">{{product.released_price|intcomma}}원</p>
             <p class="present_price">즉시구매가</p>
             <div class="fast__btn">
                 <svg

@@ -1,0 +1,7 @@
+.detail_check_box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+  font-size: 18px;
+  padding: 18px 0 17px;
+}

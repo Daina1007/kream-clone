@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/product.css' %}">
-    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/product.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/item_price.css' %}">
+    <link rel="stylesheet" href="{% static 'css/item_info.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail_check.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delivery_info.css' %}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>

@@ -1,0 +1,17 @@
+.delivery_title {
+  padding: 39px 0px 0px;
+  font-size: 14px;
+  color: rgba(34, 34, 34, 0.8);
+}
+.delivery_box {
+  display: flex;
+  padding: 12px 0px 18px;
+}
+.delivery_photo {
+  width: 40px;
+  height: 40px;
+}
+.delivery_comment {
+  height: 100%;
+  margin: auto 10px;
+}

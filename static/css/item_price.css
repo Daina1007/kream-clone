@@ -1,0 +1,28 @@
+.detail_price_box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.price_box {
+  width: 48%;
+  background-color: #ef6253;
+  display: flex;
+  border-radius: 10px;
+  color: #fff;
+}
+.price_type {
+  width: 30%;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  height: 70px;
+  text-align: center;
+  padding: 23px 0px;
+  border-right: 1px solid #b84f43;
+}
+.price_type_p {
+  padding: 18px 8px;
+}
+.price_price {
+  font-weight: 700;
+}

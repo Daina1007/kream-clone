@@ -32,11 +32,11 @@ p {
   font-size: 14px;
   font-weight: 700;
   color: #333;
-  margin: 4px 0px;
+  margin: 4px 0px 10px;
 }
 .product_list_name {
   font-size: 13px;
-  margin: 0px;
+  margin: 5px auto;
 }
 .product_price {
   line-height: 17px;
@@ -48,7 +48,7 @@ p {
   line-height: 13px;
   font-size: 11px;
   color: rgba(34, 34, 34, 0.5);
-  margin: 0px;
+  margin: 3px auto;
 }
 .product_comment {
   font-size: 13px;
