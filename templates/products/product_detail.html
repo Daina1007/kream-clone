@@ -3,13 +3,21 @@
 {% block title %}상세페이지{% endblock title %}
 
 {% block contents %}
-<h1>상세페이지</h1>
-{{now}}
+{% comment %} <h1 class="상세페이지">상세페이지</h1> {% endcomment %}
 
-<h4>{{product.brand}}-{{product.name_en}}</h4>
+<div class="product_detail_list">
+    <div class="detail_photo_box">
+        <img src="{{product.photo_set.first.image.url}}" alt="{{product.name_en}}" class="detail_photo"/>
+    </div>   
+    <div class="product_detail_info">
+        <p class="product_detail_brand">{{product.brand}}</p>
+        <p class="product_detail_name">{{product.name_en}}</p>
+        <p class="product_detail_name" style="color: gray">{{product.name_ko}}</p>
+        <div class="detail_price_box">
+            <p>최근거래가</p>
+            <p class="product_detail_price">{{product.released_price}}원</p>
+        </div>
+    </div>
 
-{% for photo in product.photo_set.all%}
-<img src="{{photo.image.url}}" alt="{{product.name_en}}"/>
-{% endfor %}
-
+</div>
 {% endblock contents %}

@@ -1,13 +1,38 @@
-<header>KREAM
-<div>
-    <a href = "#">고객센터</a>
-    <a href = "#">관심상품</a>
-    <a href = "#">마이페이지</a>
-    {% if user.is_authenticated %}
-    <a href = "{% url 'users:logout' %}">로그아웃</a>
-    {% else %}
-    <a href = "{% url 'users:login' %}">로그인</a>
-     {% endif %}
-</div>
-
+<header style="position: sticky;top: 0;z-index: 9999; background-color: white">
+    <div class="header_box">
+        <div class="header">
+            <a href = "#">고객센터</a>
+            <a href = "#">관심상품</a>
+            <a href = "#">마이페이지</a>
+            {% if user.is_authenticated %}
+            <a href = "{% url 'users:logout' %}">로그아웃</a>
+            {% else %}
+            <a href = "{% url 'users:login' %}">로그인</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="top_logo" style="display: flex; justify-content: space-between; margin: 0px 50px;">
+        <div class="photo_logo" style="margin: 30px 50px;">
+            <img src="/static/img/kream_logo.png" alt="로고사진" style="width: 130px;">
+        </div>
+        <div class="logo__items" style="display: flex; gap: 30px; text-align: center; align-items: center">
+            <p><a href="">STYLE</a></p>
+            <p><a href="">SHOP</a></p>
+            <p><a href="">ABOUT</a></p>
+            <p>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="black"
+            >
+                <path
+                fill-rule="evenodd"
+                d="M14.53 15.59a8.25 8.25 0 111.06-1.06l5.69 5.69a.75.75 0 11-1.06 1.06l-5.69-5.69zM2.5 9.25a6.75 6.75 0 1111.74 4.547.746.746 0 00-.443.442A6.75 6.75 0 012.5 9.25z"
+                ></path>
+            </svg>
+            </p>
+        </div>
+    </div>
 </header>

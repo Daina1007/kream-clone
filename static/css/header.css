@@ -1,0 +1,17 @@
+.header_box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 40px;
+  border-bottom: 1px solid lightgray;
+}
+.header {
+  display: flex;
+  gap: 20px;
+}
+.header > a {
+  align-items: center;
+  font-size: 14px;
+  letter-spacing: -0.06px;
+  color: rgba(34, 34, 34, 0.8);
+  text-decoration: none;
+}
