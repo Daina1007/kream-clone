@@ -26,7 +26,7 @@ class User(AbstractUser):
         ("295", "295"),
         ("300", "300"),
     ]
-    avatar = models.ImageField(blank=True, null=True)
+    avatar = models.ImageField(blank=True, null=True, upload_to="style/%Y/%m/%d/")
     phone_number = models.CharField(max_length=11, unique=True)
     shoe_size = models.CharField(blank=True, choices=SHOW_SIZE_CHOICES, max_length=3)
     is_ad_message = models.BooleanField(default=False)

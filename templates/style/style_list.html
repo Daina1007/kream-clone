@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
 {% block title %}STYLE | KREAM{% endblock title %}
 
 {% block contents %}
-<h3>스타일</h3>
+{% comment %} <h3>스타일</h3> {% endcomment %}
 <div class="style_list_box">
-<div class="style_list">
+<div class="style_card_list">
     {% for style in styles %}
-    <div class="style">
+    <div class="style_card">
             {% for photo in style.photo_set.all %}
-            <img src = "{{photo.image.url}}" alt="{{style.user}}" class="photo_user" />
+            <img src = "{{photo.image.url}}" alt="{{style.user}}" class="style_photo_user" />
             {% endfor %}
-        <p class="user">😄
-            {% comment %} <img scr="{{style.user.avatar.image.url}}" alt="상품사진"> {% endcomment %}
+        <p class="style_list_user">😄
+            <img scr="{{style.user.avatar.image.url}}" alt="상품사진">
             {{style.user}}</p>
-        <p class="comment">❤️ {{style.comment}}</p>
-        <p class="number_tag">👕 태그된 상품의 수: {{style.count_style}}개</p>
+        <p class="style_list_comment">❤️ {{style.comment}}</p>
+        <p class="style_number_tag">👕 태그된 상품의 수: {{style.count_style}}개</p>
 
         <div class="product_list_box">
             {% for product in style.product.all %}
-                <div class="product_list"> 
-                    <img src="{{product.photo_set.first.image.url}}" alt = "상품사진" class="photo" />
-                    <div class="product_info">
-                        <p class="product_name">{{product.name_en}}</p>
-                        <p>{{product.released_price}}원</p>
+                <div class="style_product_list"> 
+                    <img src="{{product.photo_set.first.image.url}}" alt = "상품사진" class="style_product_photo" />
+                    <div class="style_product_info">
+                        <p class="style_product_name">{{product.name_en}}</p>
+                        <p style="margin-top:1px;">{{product.released_price|intcomma}}원</p>
                     </div>
                 </div>
             {% endfor %} 
