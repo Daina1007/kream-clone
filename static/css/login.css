@@ -1,0 +1,7 @@
+.login_box {
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 200px;
+  margin-top: 5px;
+}
