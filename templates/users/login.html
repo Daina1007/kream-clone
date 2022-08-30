@@ -3,29 +3,31 @@
 
 {% block contents %}
 <h1>로그인페이지임</h1>
-<form method="post" action="{% url "users:login" %}">
-    <br>
-    {% csrf_token %}
-    {% comment %} <input type="email" name="email" placeholder="예)  kream@kream.co.kr">
-    <input type="password" name="password"> {% endcomment %}
-    {% comment %} {{form.as_p}} {% endcomment %}
-    {% for field in form %}
-    <p>
-        {{field}}
-        {% if field.errors %}
-            {% for error in field.errors %}
-                <span class="text-red-700 font-medium text-sm">{{error}}</span>
-            {% endfor %}
-        {% endif %}
-    </p>
-    {% endfor %}
-    <br>
-    <input class="login_box" type="submit" value="로그인">
-    <br>
-    {% comment %} <input type="date" name="date"> {% endcomment %}
-    {% comment %} <button type="submit">로그인</button>는 11줄과 같은 의미{% endcomment %}
-    <div class="login_box">
-        <a href="{% url 'users:kakao-login' %}">카카오로그인</a>
-    </div>
-</form>
+<div class="login_page_box">
+    <form method="post" action="{% url "users:login" %}">
+        <br>
+        {% csrf_token %}
+        {% comment %} <input type="email" name="email" placeholder="예)  kream@kream.co.kr">
+        <input type="password" name="password"> {% endcomment %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+        {% for field in form %}
+        <p>
+            {{field}}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <span class="text-red-700 font-medium text-sm">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+        </p>
+        {% endfor %}
+        <br>
+        <input class="login_box" type="submit" value="로그인">
+        <br>
+        {% comment %} <input type="date" name="date"> {% endcomment %}
+        {% comment %} <button type="submit">로그인</button>는 11줄과 같은 의미{% endcomment %}
+        <div class="login_box">
+            <a href="{% url 'users:kakao-login' %}">카카오로그인</a>
+        </div>
+    </form>
+</div>
 {% endblock contents %}

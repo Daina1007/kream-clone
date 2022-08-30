@@ -5,3 +5,7 @@
   width: 200px;
   margin-top: 5px;
 }
+.login_page_box {
+  display: flex;
+  justify-content: center;
+}
